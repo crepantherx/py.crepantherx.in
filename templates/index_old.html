@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Landing Page</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        } */
+        .a4-document {
+            
+            width: calc((100vh - 160px) / 1.414); /* A4 aspect ratio (1.414) with 20% margin */
+            height: calc(100vh - 160px); /* 20% margin from top and bottom */
+            max-width: 80vw; /* Ensure it doesn't exceed 80% of viewport width */
+            max-height: 80vh; /* Ensure it doesn't exceed 80% of viewport height */
+            border: 1px solid #ddd; /* Optional: Add a border to mimic the paper edge */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for effect */
+            background-color: #fff; /* White background to resemble paper */
+            padding: 20px; /* Optional: Add some padding inside the box */
+            overflow-y: auto; /* Add vertical scroll if content exceeds the box height */
+            border-radius: 1vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            padding-right: 6vh;
+            padding-left: 6vh;
+        }
+        .shadowed-box {
+            background-color: transparent; /* Background color */
+            border-radius: 1vh; /* Adjust border radius as needed */
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.1), 
+            -8px -8px 20px rgba(255, 255, 255, 0.5);
+
+        }
+
+                /* Hide the scrollbar while allowing scrolling */
+        ::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for WebKit browsers */
+        }
+
+        /* Ensure the content is still scrollable */
+        .scrollable-content {
+            overflow-y: auto; /* Enable vertical scrolling */
+            -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="a4-document shadowed-box" id="resume-content">
+
+    </div>
+
+    <script src="resume-script.js"></script>
+
+</body>
+</html>
