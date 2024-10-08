@@ -20,5 +20,4 @@ from example import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('example.urls')),
-    path('', views.project, name='project')
 ]
