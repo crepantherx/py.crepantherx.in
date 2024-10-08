@@ -19,9 +19,10 @@ from django.http import HttpResponse
 def process_form(request):
     if request.method == 'POST':
         # Extract form values
-        email = request.POST.get('email')
+        #email = request.POST.get('email')
+        message = request.POST.get('email') + request.POST.get('message')
         subject = request.POST.get('subject')
-        message = request.POST.get('message')
+        #message = request.POST.get('message')
 
         def sendEmail(reciever, subject, body):
             import smtplib
@@ -34,12 +35,13 @@ def process_form(request):
             message['From'] = 'work.crepantherx@gmail.com'
             message['To'] = reciever
             message['Subject'] = subject
+
             message.attach(MIMEText(body, 'plain'))
             server.sendmail(message['From'], message['To'], message.as_string())
 
         # Example processing (you can replace this with actual logic)
         # For example, you could send an email or store the data in the database
-        sendEmail(email, subject, message)
+        sendEmail('work.crepantherx@gmail.com', subject, message)
 
 
 
