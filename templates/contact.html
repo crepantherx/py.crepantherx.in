@@ -3,9 +3,10 @@
 <html lang="en">
 
     <head>
+        {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <title>
             www.crepantherx.dev
         </title>
@@ -43,7 +44,7 @@
     </head>
     
     <body>
-        <a href="index.html"">
+        <a href="index.html">
             <img src="../icon/home.png" id='home' alt="">
         </a>
         <aside>
@@ -71,25 +72,24 @@
                 <input type="submit" value="send message">
             </form> -->
 
-            <form             action="https://formspree.io/f/mnqewlov"
-            method="POST">
+            <form method="POST" action="{% url 'process_form' %}">
+                {% csrf_token %}
                 <section>
-                    <label for="">Your Email</label><br>
+                    <label for="email">Your Email</label><br>
                     <input type="email" name="email" autocomplete="email" required>
                 </section>
                 <br><br>
                 <section>
-                    <label for="">Subject</label><br>
-                    <input type="text" required>
+                    <label for="subject">Subject</label><br>
+                    <input type="text" name="subject" required>
                 </section>
                 <br><br>
-                
                 <section>
-                    <label for="">Message</label><br>
-                    <textarea name="" id="" required></textarea>
+                    <label for="message">Message</label><br>
+                    <textarea name="message" id="message" required></textarea>
                 </section>
                 <br><br>
-                <button  type="submit">Send Message</button>
+                <button type="submit">Send Message</button>
             </form>
 
 
