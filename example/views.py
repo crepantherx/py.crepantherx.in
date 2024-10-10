@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import razorpay
 
 def index(request):
     return render(request, 'index.html')
@@ -12,8 +15,7 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-from django.shortcuts import render
-from django.http import HttpResponse
+
 
 
 def process_form(request):
@@ -59,6 +61,42 @@ def process_form(request):
         </head>
         <body>
             <h1>Thank you for your message!</h1>
+            <p>Expected Response time is in 4-5 hours. Otherwise, please do a follow-up! Thanks!</p>
+        </body>
+        </html>
+        """
+    return HttpResponse(html_content)
+
+
+def payment(request):
+
+    if request.method == 'POST':
+        client = razorpay.Client(auth=("rzp_test_zpTpnWy4S0rI5D", "2xttOGE0eCmhScraxt0PoHOz"))
+
+        DATA = {
+            "amount": 100,
+            "currency": "INR",
+            "receipt": "receipt#1",
+            "notes": {
+                "key1": "value3",
+                "key2": "value2"
+            }
+        }
+        client.order.create(data=DATA)
+
+
+@csrf_exempt
+def success(request):
+    html_content = """
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>My Django Inline Page</title>
+        </head>
+        <body>
+            <h1>Payment Done</h1>
             <p>Expected Response time is in 4-5 hours. Otherwise, please do a follow-up! Thanks!</p>
         </body>
         </html>
