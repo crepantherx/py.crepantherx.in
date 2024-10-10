@@ -28,7 +28,7 @@ RAZORPAY_KEY_SECRET = '2xttOGE0eCmhScraxt0PoHOz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'crepantherx.in']
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/crepantherx/Developer/portfolio/py.crepantherx.in/templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
