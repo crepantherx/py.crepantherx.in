@@ -8,25 +8,6 @@ def index(request):
 
 
 def project(request):
-    if request.method == 'POST':
-        client = razorpay.Client(auth=("rzp_test_zpTpnWy4S0rI5D", "2xttOGE0eCmhScraxt0PoHOz"))
-        DATA = {
-            "amount": 50000,  # Amount in paise (500 INR)
-            "currency": "INR",
-            "receipt": "receipt#1",
-            "payment_capture": 1  # Auto capture after payment
-        }
-        payment = client.order.create(data=DATA)
-
-        context = {
-            'razorpay_order_id': payment['id'],  # Pass order ID to frontend
-            'razorpay_key_id': "rzp_test_zpTpnWy4S0rI5D",
-            'amount_in_paise': 50000,
-            'company_name': "Your Company",
-            'company_logo_url': "https://yourcompany.com/logo.png",
-        }
-
-        return render(request, 'project.html', context)
     return render(request, 'project.html')
 
 
@@ -158,3 +139,26 @@ def verify_payment(request):
             return JsonResponse({'status': 'failed', 'message': str(e)}, status=400)
 
     return JsonResponse({'status': 'failed', 'message': 'Invalid request method.'}, status=405)
+
+
+def mentorship(request):
+    if request.method == 'POST':
+        client = razorpay.Client(auth=("rzp_test_zpTpnWy4S0rI5D", "2xttOGE0eCmhScraxt0PoHOz"))
+        DATA = {
+            "amount": 50000,  # Amount in paise (500 INR)
+            "currency": "INR",
+            "receipt": "receipt#1",
+            "payment_capture": 1  # Auto capture after payment
+        }
+        payment = client.order.create(data=DATA)
+
+        context = {
+            'razorpay_order_id': payment['id'],  # Pass order ID to frontend
+            'razorpay_key_id': "rzp_test_zpTpnWy4S0rI5D",
+            'amount_in_paise': 50000,
+            'company_name': "Your Company",
+            'company_logo_url': "https://yourcompany.com/logo.png",
+        }
+
+        return render(request, 'mentorship.html', context)
+    return render(request, 'mentorship.html')

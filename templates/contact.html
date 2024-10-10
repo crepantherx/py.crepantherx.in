@@ -44,8 +44,8 @@
     </head>
     
     <body>
-        <a href="index.html">
-            <img src="../icon/home.png" id='home' alt="">
+        <a href="{% url 'index' %}">
+            <img src="{%  static '/img/icon/home.png' %}" id='home' alt="">
         </a>
         <aside>
             <a href="https://github.com/crepantherx">
@@ -122,12 +122,11 @@
              </div>
          </div> -->
              <nav>
-                 <a href="resume.html">Hire Me</a>
-                 <a href="project.html">Project</a>
-                 <!-- <a href="cv.pdf">CV</a> -->
-                 <a href="https://crepantherx.hashnode.dev/">Blog</a>
-                 <a href="team.html">Team</a>
-                 <!-- <a href="contact.html">Contact</a> -->
+            <a href="resume.html">Hire Me</a>
+            <a href={% url 'project' %}>Project</a>
+            <a href="{% url 'mentorship' %}">Mentorship</a>
+            <a href="team.html">Team</a>
+            <a href={% url 'contact' %}>Email Me</a>
              </nav>
         </footer>
 
