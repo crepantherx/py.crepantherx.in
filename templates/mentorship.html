@@ -1,0 +1,149 @@
+<html>
+    <head>
+        {% load static %}
+        <title>
+            Mentorship
+        </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+            section {
+                text-align: center;
+                width: 20vw;
+                padding: 15px;    
+            }
+            img {
+                object-fit: cover;
+                margin: 15px;
+            }
+            main > div {
+                border: 1px solid rgb(0, 187, 0);
+            }
+            main > section > article {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            button {
+                margin-right: 15px;
+            }
+        </style>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    </head>
+    <body>Last Updated: 2020
+        <a href={% url 'index' %}>
+            <img src="{%  static 'img/icon/home.png' %}" id='home' alt="">
+        </a> 
+        <aside>
+
+            <a href="https://github.com/crepantherx">
+                GITHUB
+            </a>
+            <a href="https://www.linkedin.com/in/crepantherx/">
+                LINKEDIN
+            </a>
+        </aside>
+
+    <!-- Razorpay Payment Button -->
+
+
+        <main>
+
+            <div>
+                <section>
+                    <label for="">Advanced SQL</label>
+                    <img src="{%  static 'img/sql.png' %}" alt="" width="200" height="200">
+                    <div>
+                        <button>Rs. 49,000</button>
+                        <button id="rzp-button1">Pay</button>
+                    </div>
+                    <!-- </button><button><a href="https://algo.crepantherx.dev/">Website</a></button> -->
+                </section>
+                </div>
+
+            <div>
+                <section>
+                    <label for="">Apache Spark</label>
+                    <img src="{%  static 'img/apache_spark.png' %}" alt="" width="200" height="200">
+                    <div>
+                        <button>Rs. 99,000</button>
+                        <button id="rzp-button1">Pay</button>
+                    </div>
+                    <!-- </button><button><a href="https://algo.crepantherx.dev/">Website</a></button> -->
+                </section>
+                </div>
+
+            <div>
+                <section>
+                    <label for="">Python</label>
+                    <img src="{%  static 'img/python.png'%}" alt="" width="200" height="200">
+                    <div>
+                        <button>Rs. 79,000</button>
+                        <button id="rzp-button1">Pay</button>
+                    </div>
+                    <!-- </button><button><a href="https://algo.crepantherx.dev/">Website</a></button> -->
+                </section>
+                </div>
+
+
+
+
+
+        </main>
+
+
+       <footer>
+        
+           <!-- <div id="logo">
+            <div>
+                <a href="index.html">crepantherx</a>
+            </div> -->
+        </div>
+            <nav>
+            <a href="resume.html">Hire Me</a>
+            <a href={% url 'project' %}>Project</a>
+            <a href="{% url 'mentorship' %}">Mentorship</a>
+            <a href="team.html">Team</a>
+            <a href={% url 'contact' %}>Email Me</a>
+            </nav>
+       </footer>
+
+
+        <script type="text/javascript">
+var options = {
+    "key": "rzp_test_zpTpnWy4S0rI5D", // Replace with your Razorpay Test Key ID
+    "amount": "50000", // Amount in paise
+    "currency": "INR",
+    "order_id": "{{ razorpay_order_id }}", // Backend-generated order ID
+    "name": "Test Payment",
+    "description": "Test Transaction",
+    "handler": function(response) {
+        // Handle successful payment
+    },
+    "prefill": {
+        "name": "{{ user.username }}",
+        "email": "{{ user.email }}",
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+        var rzp1 = new Razorpay(options);
+
+        // Button click event to trigger payment modal
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+       <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+       <script src="{% static 'js/tilt.js' %}"></script>
+       <script type="text/javascript">
+            $(document).ready(function(){
+
+    $('.data-tilt').tilt({
+        scale: 1.1
+})
+            })
+    </script>
+    </body>
+</html>
