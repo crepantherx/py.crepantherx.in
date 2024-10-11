@@ -29,7 +29,7 @@ RAZORPAY_KEY_SECRET = '2xttOGE0eCmhScraxt0PoHOz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'crepantherx.in']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'py.crepantherx.in']
 
 
 # Application definition
